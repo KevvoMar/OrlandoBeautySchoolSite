@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ---- THEME TOKENS (RGB triples) ----
+     Change these six lines to re-theme the entire site. */
+  --bg-main: 251 247 241; /* ivory */
+  --bg-surface: 243 233 226; /* linen */
+  --primary: 110 30 60; /* deep wine */
+  --primary-light: 181 87 127; /* rose */
+  --primary-dark: 74 18 40; /* darkest wine */
+  --text-main: 43 22 32; /* wine-tinted ink */
+  --text-muted: 131 112 122; /* mauve mute */
+  --gold: 201 166 107; /* champagne accent */
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Work Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg-main));
+  color: rgb(var(--text-main));
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--primary));
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
