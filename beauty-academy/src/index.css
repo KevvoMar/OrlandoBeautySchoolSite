@@ -4,15 +4,23 @@
 
 :root {
   /* ---- THEME TOKENS (RGB triples) ----
-     Change these six lines to re-theme the entire site. */
-  --bg-main: 251 247 241; /* ivory */
-  --bg-surface: 243 233 226; /* linen */
-  --primary: 110 30 60; /* deep wine */
-  --primary-light: 181 87 127; /* rose */
-  --primary-dark: 74 18 40; /* darkest wine */
-  --text-main: 43 22 32; /* wine-tinted ink */
-  --text-muted: 131 112 122; /* mauve mute */
-  --gold: 201 166 107; /* champagne accent */
+     Premium White, Black & Gold Theme */
+  
+  /* Clean Light Backgrounds (Flipped to white canvases) */
+  --bg-main: 255 255 255;       /* #FFFFFF - pure crisp white */
+  --bg-surface: 247 247 249;    /* #F7F7F9 - soft premium off-white for cards / surfaces */
+
+  /* Premium High-End Golds (Preserved exactly from your preferred values) */
+  --primary: 212 175 55;        /* #D4AF37 - metallic classic gold */
+  --primary-light: 243 218 134;  /* #F3DA86 - champagne light gold shimmer */
+  --primary-dark: 163 129 34;   /* #A38122 - deep antique burnished gold */
+
+  /* Deep Luxury Blacks (Flipped for premium typography and accent elements) */
+  --text-main: 15 15 17;        /* #0F0F11 - deep obsidian typography ink */
+  --text-muted: 115 115 118;    /* #737376 - classy metallic slate grey */
+
+  /* Replaced Turquoise Accent with Classic Rich Black */
+  --gold: 26 26 29;             /* #1A1A1D - dark charcoal velvet black accent */
 
   --font-display: "Cormorant Garamond", serif;
   --font-body: "Work Sans", sans-serif;
@@ -26,6 +34,7 @@ body {
   background-color: rgb(var(--bg-main));
   color: rgb(var(--text-main));
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,

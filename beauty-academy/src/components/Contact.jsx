@@ -2,13 +2,14 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import Container from "./Container";
 import SectionHeading from "./SectionHeading";
 import Button from "./Button";
+import logoImg from "../assets/artisticschoollogo-withbg.png";
 
 export default function Contact({ onOpenInquiry }) {
   const details = [
     { icon: Phone, label: "Phone", value: "(407) 496-0062" },
     { icon: Mail, label: "Email", value: "orlandobeautyschool@gmail.com" },
     { icon: MapPin, label: "Campus", value: "5232 S. Orange Ave Suite B, Orlando, FL, United States, 32806" },
-    { icon: Clock, label: "Front desk hours", value: "Mon–Sat, 9am–7pm" },
+    { icon: Clock, label: "Front desk hours", value: "Mon, Tue, Thu: 11am–9pm | Wed, Fri: 11am–5pm | Sat: 10am–2pm (Sun: Closed)" },
   ];
 
   return (
@@ -34,12 +35,14 @@ export default function Contact({ onOpenInquiry }) {
           </Button>
         </div>
 
-        <div className="rounded-2xl border border-dashed border-primary/30 bg-bg-surface p-8 text-sm leading-relaxed text-text-muted">
-          <p className="font-medium text-text-main">Insert map embed here</p>
-          <p className="mt-2">
-            Replace this block with an embedded map pointing to the campus
-            address above.
-          </p>
+        <div className="flex items-center justify-center w-full max-w-xl mx-auto lg:max-w-none">
+          <div className="p-1 border rounded-[25px] border-[#D4AF37] bg-[#D4AF37] shadow-[0_0_100px_#b8860b,inset_0_0_10px_#b8860b,0_0_30px_rgba(212,175,55,1)]">
+            <img
+              src={logoImg}
+              alt="Artistic School Logo"
+              className="w-full h-auto object-contain rounded-[20px]"
+            />
+          </div>
         </div>
       </Container>
     </section>

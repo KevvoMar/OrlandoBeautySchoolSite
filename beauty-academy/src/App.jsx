@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
@@ -17,27 +17,49 @@ import { translations } from "./lib/i18n";
 
 export default function App() {
   const [lang, setLang] = useState("en");
-  const [view, setView] = useState("home");
+  const [view, setView] = useState(() => {
+    const path = window.location.pathname.replace("/", "");
+    if (!path || path === "home") return "home";
+    return path; // Dynamically sets view based on the URL path (e.g., /services -> "services")
+  });
   const t = translations[lang];
 
-  function navigate(id) {
-    if (view !== "home") {
-      setView("home");
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 50);
-      return;
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname.replace("/", "");
+      if (!path || path === "home") {
+        setView("home");
+      } else {
+        setView(path);
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  function updateUrl(targetView) {
+    const targetPath = targetView === "home" ? "/" : `/${targetView}`;
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState(null, "", targetPath);
     }
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function navigate(id) {
+    // If navigating to an id, change page view to match that explicit section path
+    setView(id);
+    updateUrl(id);
+    window.scrollTo({ top: 0, behavior: "smooth"});
   }
 
   function openInquiry() {
     setView("inquiry");
+    updateUrl("inquiry");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function backToSite() {
     setView("home");
+    updateUrl("home");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -52,21 +74,32 @@ export default function App() {
         view={view}
       />
 
+      {/* Standalone Page Render Routing Conditional Block */}
       {view === "inquiry" ? (
         <InquiryGate t={t} onBack={backToSite} />
+      ) : view === "programs" ? (
+        <Programs onOpenInquiry={openInquiry} />
+      ) : view === "continued-education" ? (
+        <ContinuedEducation onOpenInquiry={openInquiry} />
+      ) : view === "services" ? (
+        <Services onOpenInquiry={openInquiry} />
+      ) : view === "gallery" ? (
+        <Gallery />
+      ) : view === "spotlight" ? (
+        <StudentSpotlight />
+      ) : view === "careers" ? (
+        <CareerPaths />
+      ) : view === "faq" ? (
+        <FAQ />
+      ) : view === "contact" ? (
+        <Contact onOpenInquiry={openInquiry} />
+      ) : view === "shop" ? (
+        <Shop />
       ) : (
+        /* Base Homepage view Only */
         <>
           <Hero onOpenInquiry={openInquiry} onNavigate={navigate} />
           <WhyChooseUs />
-          <Programs onOpenInquiry={openInquiry} />
-          <ContinuedEducation onOpenInquiry={openInquiry} />
-          <Services onOpenInquiry={openInquiry} />
-          <Gallery />
-          <StudentSpotlight />
-          <CareerPaths />
-          <FAQ />
-          <Contact onOpenInquiry={openInquiry} />
-          <Shop />
         </>
       )}
 

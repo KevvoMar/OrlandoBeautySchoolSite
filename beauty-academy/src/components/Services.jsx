@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Container from "./Container";
 import SectionHeading from "./SectionHeading";
 
@@ -6,6 +7,12 @@ const services = [
 ];
 
 export default function Services({ onOpenInquiry }) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredServices = services.filter((service) =>
+    service.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <section id="services" className="bg-bg-main py-24">
       <Container>
@@ -15,25 +22,43 @@ export default function Services({ onOpenInquiry }) {
           description="At the Artistic School of Nails & Cosmetology, we provide leading beauty education through hands-on student training. Our clients enjoy high-quality services from skilled students in a supervised environment—all at discounted rates. Book your appointment today to experience the magic!"
         />
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.name}
-              onClick={onOpenInquiry}
-              className="flex items-center justify-between rounded-xl border border-primary/15 bg-bg-surface px-6 py-5 transition-colors duration-200 hover:border-primary/40 hover:cursor-pointer"
-            >
-              <span className="text-sm font-medium text-text-main">{service.name}</span>
-              <span className="text-sm text-primary">{service.price}</span>
-            </div>
-          ))}
+        {/* Search & Booking Control Layout Wrapper */}
+        <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-2xl">
+          <div className="flex-1">
+            <input
+              type="text"
+              placeholder="Search for a service... (e.g. Facial, Wax, Massage)"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full rounded-xl border border-primary/20 bg-bg-surface px-4 py-3 text-sm text-text-main placeholder-text-muted outline-none transition-all duration-200 focus:border-primary focus:ring-1 focus:ring-primary"
+            />
+          </div>
+          
+          <button
+            onClick={onOpenInquiry}
+            className="rounded-xl bg-primary hover:bg-primary-dark text-white text-sm font-medium px-6 py-3 whitespace-nowrap transition-colors duration-200 shadow-sm"
+          >
+            Book a service now
+          </button>
         </div>
 
-        <button
-          onClick={onOpenInquiry}
-          className="mt-8 text-sm font-medium text-primary hover:text-primary-dark"
-        >
-          Book a service now
-        </button>
+        {filteredServices.length === 0 ? (
+          <p className="mt-12 text-sm text-text-muted">
+            No services found matching "{searchTerm}".
+          </p>
+        ) : (
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredServices.map((service) => (
+              <div
+                key={service.name}
+                className="flex items-center justify-between rounded-xl border border-primary/15 bg-bg-surface px-6 py-5 transition-colors duration-200 hover:border-primary/40"
+              >
+                <span className="text-sm font-medium text-text-main">{service.name}</span>
+                <span className="text-sm text-primary">{service.price}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </Container>
     </section>
   );

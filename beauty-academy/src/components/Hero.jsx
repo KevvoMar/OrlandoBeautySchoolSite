@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Container from "./Container";
 import Button from "./Button";
-import ImagePlaceholder from "./ImagePlaceholder";
+import logoImg from "../assets/artisticschoollogo-withbg.png";
 
 export default function Hero({ onOpenInquiry, onNavigate }) {
   return (
@@ -48,11 +48,16 @@ export default function Hero({ onOpenInquiry, onNavigate }) {
           </dl>
         </div>
 
-        <ImagePlaceholder
-          label="Insert editorial hero photo — student styling a client in studio light"
-          aspect="aspect-[4/5]"
-          className="shadow-sm"
-        />
+        <div className="flex items-center justify-center w-full max-w-xl mx-auto lg:max-w-none">
+          <div className="p-1 border rounded-[25px] border-[#D4AF37] bg-[#D4AF37] shadow-[0_0_100px_#b8860b,inset_0_0_10px_#b8860b,0_0_30px_rgba(212,175,55,1)]">
+            <img
+              src={logoImg}
+              alt="Artistic School Logo"
+              className="w-full h-auto object-contain rounded-[20px]"
+            />
+          </div>
+        </div>
+
       </Container>
     </section>
   );

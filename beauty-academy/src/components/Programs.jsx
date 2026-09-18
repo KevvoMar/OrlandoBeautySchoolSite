@@ -10,7 +10,7 @@ export default function Programs({ onOpenInquiry }) {
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             kicker="Licensure programs"
-            title="Four paths into the beauty industry"
+            title="Six paths into the beauty industry"
             description="Each program combines classroom theory with supervised clinical floor hours."
           />
         </div>

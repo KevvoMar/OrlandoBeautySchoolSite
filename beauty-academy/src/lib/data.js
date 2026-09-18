@@ -1,8 +1,8 @@
 export const licensePrograms = [
   "Cosmetology (1,200 hrs)",
   "Esthetics (260 hrs)",
-  "Facial Specialist",
-  "Full Specialist",
+  "Facial Specialist (260 hrs)",
+  "Full Specialist (400 hrs)",
   "Nail Technology (240 hrs)",
   "Massage Therapy (720 hrs)",
 ];
@@ -98,8 +98,8 @@ export const faqs = [
     a: "Most students complete the 1,200-hour cosmetology program in 10–12 months, depending on whether they attend day or evening classes.",
   },
   {
-    q: "Do you offer financial aid?",
-    a: "Yes. Our financial aid office works with eligible students on federal aid, payment plans, and scholarships.",
+    q: "Do you have Spanish Speaking teachers?",
+    a: "There is no guarantee a Spanish speaking educator will be available in every class. We do have Spanish speaking students and teachers on staff who speak several languages.",
   },
   {
     q: "Is the school accredited?",
@@ -109,4 +109,41 @@ export const faqs = [
     q: "Can I tour the campus before enrolling?",
     a: "Absolutely. Campus tours can be scheduled directly through our pricing and inquiry page.",
   },
+  {
+    q: "Do you accept financial aid?",
+    a: "No, we do not. We are an accredited state private school with no public funding.",
+  },
+  {
+    q: "What is your class schedule?",
+    a: "We have flexible class schedules. We are open from 10am to 9pm - Monday thru Thursday. We require a minimum of 16 class hours per week.",
+  },
+  {
+    q: "What can I do to prepare for success in a beauty school program?",
+    a: "Preparing for beauty school includes having a passion for the industry, good time management skills, and a willingness to learn and practice. Researching the field and its trends can also be helpful.",
+  },
+  {
+    q: "Do you offer flexible payment plans since you do not take financial aid?",
+    a: "Yes. Because we operate independently of public funding, we offer customizable, affordable payment installations to help students manage tuition out-of-pocket without accumulating heavy student debt.",
+  },
+  {
+    q: "When do students start working on real clients?",
+    a: "Students transition to the student salon floor to service real clients after completing their foundational theory hours and passing their core practical safety and technical milestones under teacher supervision.",
+  },
+  {
+    q: "What is the minimum age or education requirement to enroll?",
+    a: "To enroll in our specialty or cosmetology programs, applicants generally must be at least 16 years of age and hold a high school diploma, GED, or recognized equivalent state credential.",
+  },
+  {
+    q: "Are student kits and tools included in the tuition cost?",
+    a: "Yes, students receive a professional kit tailored to their specialty (hair, skin, or nails) containing the high-quality tools, implements, and textbooks required to complete their salon floor hours.",
+  },
+  {
+    q: "Is there a dress code or uniform policy?",
+    a: "Yes, students are required to wear professional salon attire—typically clean, solid black scrubs or tops and bottoms, along with comfortable, closed-toe shoes suitable for standing on the clinic floor.",
+  },
+  {
+    q: "Does the school assist with job placement after graduation?",
+    a: "While we cannot guarantee employment, we actively maintain networks with local Orlando salons and spas, post incoming job leads, and guide students on resume building and state board test prep.",
+  }
 ];
+

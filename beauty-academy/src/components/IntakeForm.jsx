@@ -35,8 +35,15 @@ export default function IntakeForm({ t, onSuccess }) {
       }
     });
 
-    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      next.email = t.intake.errors.email;
+    if (form.email) {
+      const emailStr = form.email.trim();
+      const atIndex = emailStr.indexOf("@");
+      const dotIndex = emailStr.lastIndexOf(".");
+
+      // Confirms there is an @ symbol, a dot after the @, and text surrounding them
+      if (atIndex < 1 || dotIndex < atIndex + 2 || dotIndex + 2 > emailStr.length) {
+        next.email = t.intake.errors.email;
+      }
     }
 
     if (form.phone) {
@@ -55,16 +62,15 @@ export default function IntakeForm({ t, onSuccess }) {
     if (!validate()) return;
 
     setSubmitting(true);
-    // NOTE: wire this up to your CRM / backend endpoint of choice.
+    // Simulates a smooth component lock and forwards data upward locally
     setTimeout(() => {
       setSubmitting(false);
       onSuccess(form);
-    }, 600);
+    }, 400);
   }
 
   const inputClasses = (field) =>
-    `w-full rounded-lg border bg-bg-main px-4 py-2.5 text-sm text-text-main placeholder:text-text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors ${
-      errors[field] ? "border-red-400" : "border-primary/20 focus:border-primary"
+    `w-full rounded-lg border bg-bg-main px-4 py-2.5 text-sm text-text-main placeholder:text-text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors ${errors[field] ? "border-red-400" : "border-primary/20 focus:border-primary"
     }`;
   const labelClasses = "mb-1.5 block text-sm font-medium text-text-main";
 
