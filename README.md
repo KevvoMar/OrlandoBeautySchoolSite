@@ -1,75 +1,58 @@
-# The Gilded Lane Academy
+# 💅 Artistic School of Nails & Cosmetology
+> A luxury, high-converting web platform built for a premier beauty academy in Orlando, FL. 
 
-A premium beauty academy website built with React (Vite) and Tailwind CSS.
-Pure JavaScript — no TypeScript anywhere in the project.
+Live Demo: **[orlandobeautyschool.com](https://orlandobeautyschool.com)**
 
-## Getting Started
+---
+
+## 🚀 Project Overview
+This production-ready web application features an editorial, high-end white-and-gold design aesthetic mimicking physical luxury spas. It was built from the ground up to maximize conversions for student admissions while serving a robust digital catalog of over 60 student clinic salon treatments.
+
+### Key Features
+* 🔍 **Smart Live-Search Service Catalog:** Built a case-insensitive filtering search core managing 60+ beauty clinic services live with zero performance lag.
+* 📅 **Advanced Admissions Intake & Scheduler:** Engineered a unified multi-step conversion funnel. Completing the intake form dynamically unlocks a manual, validation-backed scheduling calendar mapping to real business hours.
+* 🎨 **Premium Aesthetic & FX:** Implemented a modern light-mode canvas paired with raw SVG-driven crystalline glitter animations, layer-masked box shadow glow structures, and fluid responsive design utilities.
+* 🇪🇸 **Bilingual Architecture:** Pre-configured structural dictionary layout arrays mapping seamlessly between English and Spanish.
+* 📈 **Local SEO Optimization:** Embedded advanced automated schema structures (`JSON-LD`) containing geographic mapping arrays (`GeoCoordinates`) to maximize visibility in the Google Maps 3-Pack.
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+* **Frontend Framework:** React.js (built with Vite)
+* **Styling & Theme Engine:** Tailwind CSS + Vanilla CSS Tokens (RGB space dynamics for live theme changes)
+* **Icons & Assets:** Lucide React + custom inline SVG vector streams
+* **Form & Routing Pipelines:** AJAX-driven serverless form delivery hooks mapping straight to production endpoints
+* **Hosting Environment:** Optimized for deployment across traditional Linux-based Apache `public_html` distributions
+
+---
+
+## 📁 Key Engineering Highlights
+
+### 1. Unified Asynchronous Data Intake Loop
+Instead of forcing multiple disjoined form submission tasks, user profile states are caught locally, opening the tour coordinator calendar. Once the client picks a manual time slot, a unified payload compiles and shoots straight to the admissions dashboard through a single network request.
+
+### 2. Time-Gate Logic Rules
+The appointment manager dynamically blocks any past dates using native HTML `min` date properties. It automatically parses week-day strings to throw errors if clients attempt to book on closed days (Sundays) or select clock increments outside of the academy’s exact business hour matrix.
+
+---
+
+## ⚙️ Local Development Setup
+
+To run this project locally, clone the repository and run the following commands in your terminal:
 
 ```bash
+# 1. Install required dependencies
 npm install
+
+# 2. Fire up the local Vite development server
 npm run dev
+
+# 3. Compile an optimized, production-ready production build folder
+npm run build
 ```
 
-## One-Line Re-Theming
+---
 
-All colors resolve from six CSS variables in `src/index.css`:
-
-```css
-:root {
-  --bg-main: 251 247 241;
-  --bg-surface: 243 233 226;
-  --primary: 110 30 60;
-  --primary-light: 181 87 127;
-  --primary-dark: 74 18 40;
-  --text-main: 43 22 32;
-  --text-muted: 131 112 122;
-  --gold: 201 166 107;
-}
-```
-
-`tailwind.config.js` maps these to semantic utility classes (`bg-bg-main`,
-`bg-primary`, `text-text-muted`, etc.) — no component ever references a raw
-color name, so changing the palette is a six-line edit in one file.
-
-## The Gated Pricing / Inquiry Flow
-
-`src/components/InquiryGate.jsx` is the core feature:
-- `IntakeForm.jsx` — validates first/last name, email, phone, and license
-  program (certification + massage CE are optional). All labels,
-  placeholders, and error messages come from `src/lib/i18n.js`.
-- `SchedulingModule.jsx` — a date/time picker, rendered blurred and
-  non-interactive (`pointer-events-none`) until the intake form succeeds.
-- On successful submission, the lock overlay plays an `animate-unlock`
-  fade+blur-out (defined in `tailwind.config.js`) and the scheduler becomes
-  fully interactive.
-
-## Bilingual Toggle
-
-`src/lib/i18n.js` holds the full `en`/`es` dictionary. `App.jsx` lifts
-`lang` state and passes the resolved `t` object down — toggling
-"Español" / "English" in the navbar re-renders the nav, the whole intake
-form, and the scheduler with translated copy instantly, no page reload.
-
-## Before You Launch
-
-Replace `[EMAIL]` and `[CAMPUS ADDRESS]` (in `Footer.jsx` and
-`Contact.jsx`), swap every `ImagePlaceholder` for real photography, and
-wire `IntakeForm.jsx`'s `handleSubmit` up to your CRM or backend endpoint.
-
-## Structure
-
-```
-src/
-  App.jsx                  View state (home / inquiry) + language state
-  index.css                 Theme CSS variables + base styles
-  components/
-    Navbar.jsx, Footer.jsx
-    Hero.jsx, WhyChooseUs.jsx, Programs.jsx, ContinuedEducation.jsx,
-    Services.jsx, Gallery.jsx, StudentSpotlight.jsx, CareerPaths.jsx,
-    FAQ.jsx, Contact.jsx, Shop.jsx
-    InquiryGate.jsx, IntakeForm.jsx, SchedulingModule.jsx
-    Container.jsx, Button.jsx, SectionHeading.jsx, ImagePlaceholder.jsx
-  lib/
-    i18n.js                 en/es dictionary
-    data.js                 Programs, certifications, CE classes, FAQ, etc.
-```
+## 📄 License
+This web platform code structure was designed and engineered by **Your Name**. Built for the Artistic School of Nails & Cosmetology. All rights reserved.
