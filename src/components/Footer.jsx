@@ -145,7 +145,7 @@ export default function Footer({ t, onNavigate, onOpenInquiry }) {
       {/* Sub-footer Attribution Strip */}
       <div className="border-t border-white/5 py-6 bg-black/10">
         <Container className="flex flex-col items-center justify-between gap-3 text-xs text-bg-main/50 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} Artistic School. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Kevin Marrero. All rights reserved.</p>
           <p className="font-medium tracking-wide">Licensed by the State Board of Cosmetology</p>
         </Container>
       </div>
