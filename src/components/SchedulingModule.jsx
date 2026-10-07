@@ -95,7 +95,7 @@ export default function SchedulingModule({ t, locked, studentInfo }) {
     const formatted12HourTime = convertTo12HourEST(selectedTime);
 
     try {
-      const response = await fetch("https://formsubmit.co/0677558@gmail.com", {
+      const response = await fetch("https://formsubmit.co/orlandobeautyschool@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
